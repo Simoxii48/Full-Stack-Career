@@ -1,0 +1,10 @@
+C:\Users\mouha\Desktop\Exercice\bin\Debug\Exercice.exe.config
+C:\Users\mouha\Desktop\Exercice\bin\Debug\Exercice.exe
+C:\Users\mouha\Desktop\Exercice\bin\Debug\Exercice.pdb
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.Form1.resources
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.Properties.Resources.resources
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.csproj.GenerateResource.cache
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.exe
+C:\Users\mouha\Desktop\Exercice\obj\Debug\Exercice.pdb
