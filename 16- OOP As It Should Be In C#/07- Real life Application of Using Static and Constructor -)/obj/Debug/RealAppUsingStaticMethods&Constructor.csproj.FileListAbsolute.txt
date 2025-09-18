@@ -1,0 +1,8 @@
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\bin\Debug\RealAppUsingStaticMethods&Constructor.exe.config
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\bin\Debug\RealAppUsingStaticMethods&Constructor.exe
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\bin\Debug\RealAppUsingStaticMethods&Constructor.pdb
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\obj\Debug\RealAppUsingStaticMethods&Constructor.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\obj\Debug\RealAppUsingStaticMethods&Constructor.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\obj\Debug\RealAppUsingStaticMethods&Constructor.exe
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\obj\Debug\RealAppUsingStaticMethods&Constructor.pdb
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\07- Real life Application of Using Static and Constructor -)\RealAppUsingStaticMethods&Constructor\obj\Debug\RealAppUsingStaticMethods&Constructor.exe.config
