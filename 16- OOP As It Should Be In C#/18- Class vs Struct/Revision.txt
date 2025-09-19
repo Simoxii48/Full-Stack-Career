@@ -1,0 +1,90 @@
+Difference between class and struct in C#
+
+In C# classes and structs look similar. However, there are some differences between them.
+
+A class is a reference type whereas a struct is a value type. For example,
+
+using System;
+namespace CsharpStruct {
+ 
+  // defining class
+  class Employee {
+    public string name;
+
+  }
+ 
+  class Program {
+    static void Main(string[] args) {
+
+      Employee emp1 = new Employee();
+      emp1.name = "John";
+
+      // assign emp1 to emp2
+      Employee emp2 = emp1;
+      emp2.name = "Mohammed";
+      Console.WriteLine("Employee1 name: " + emp1.name);
+
+      Console.ReadLine();
+    }
+  }
+}
+
+
+Output
+
+Employee1 name: Mohammed
+
+In the above example, we have assigned the value of emp1 to emp2. The emp2 object refers to the same object as emp1. So, an update in emp2 updates the value of emp1 automatically.
+
+This is why a class is a reference type.
+
+Contrary to classes, when we assign one struct variable to another, the value of the struct gets copied to the assigned variable. So updating one struct variable doesn't affect the other. For example,
+
+using System;
+namespace CsharpStruct {
+ 
+  // defining struct
+  struct Employee {
+    public string name;
+
+  }
+ 
+  class Program {
+    static void Main(string[] args) {
+
+      Employee emp1 = new Employee();
+      emp1.name = "Mohammed";
+
+      // assign emp1 to emp2
+      Employee emp2 = emp1;
+      emp2.name = "Ali";
+      Console.WriteLine("Employee1 name: " + emp1.name);
+      
+      Console.ReadLine();
+    }
+  }
+}
+
+Output
+
+Employee1 name: Mohammed
+
+When we assign the value of emp1 to emp2, a new value emp2 is created. Here, the value of emp1 is copied to emp2. So, change in emp2 does not affect emp1.
+
+This is why struct is a value type.
+
+Moreover, inheritance is not possible in the structs whereas it is an important feature of the C# classes.
+
+
+In C#, both classes and structures are used to define custom data types that can contain fields, properties, methods, and events. However, there are some differences between them. Here are some of the main differences between classes and structures in C#:
+
+    Syntax: Classes are defined using the "class" keyword, followed by the class name and the class body, which contains the class members. Structures are defined using the "struct" keyword, followed by the struct name and the struct body, which also contains the struct members.
+    Inheritance: Classes can be inherited by other classes to create a hierarchy of related classes, whereas structures cannot be inherited or derived from other structures.
+    Default constructor: Classes have a default constructor that is automatically provided by the compiler if a constructor is not explicitly defined. Structures, on the other hand, do not have a default constructor and require all fields to be initialized explicitly.
+    Reference type vs Value type: Classes are reference types, which means that when an instance of a class is created, a reference to that instance is returned. Structures are value types, which means that when an instance of a structure is created, the value of the instance is returned.
+    Performance: Structures are generally faster than classes for small, simple types, as they are stored on the stack rather than the heap. This means that accessing and manipulating a structure's fields can be faster than accessing and manipulating a class's fields.
+    Memory management: Since structures are value types, they are allocated on the stack, which is a limited resource, while classes are allocated on the heap, which is a larger, more flexible memory pool. This means that using too many structures or large structures can quickly consume the available stack memory, causing a stack overflow error.
+
+In summary, classes and structures are both used to define custom data types in C#, but they have some differences in syntax, inheritance, default constructors, reference types vs value types, performance, and memory management. The choice between using a class or a structure depends on the specific needs of the application and the type of data being represented.
+
+
