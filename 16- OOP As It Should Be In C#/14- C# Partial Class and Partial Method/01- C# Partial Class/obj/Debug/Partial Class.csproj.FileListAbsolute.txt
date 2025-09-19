@@ -1,0 +1,7 @@
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\bin\Debug\Partial Class.exe.config
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\bin\Debug\Partial Class.exe
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\bin\Debug\Partial Class.pdb
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\obj\Debug\Partial Class.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\obj\Debug\Partial Class.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\obj\Debug\Partial Class.exe
+C:\Users\mouha\Desktop\CPP\16- OOP As It Should Be In C#\14- C# Partial Class and Partial Method\Partial Class\obj\Debug\Partial Class.pdb
