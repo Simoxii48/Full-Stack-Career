@@ -1,0 +1,138 @@
+الدرس سيتكلم عن عملية تفكيك البيانات و ترتيبها من قاعدة بيانات اخرى 
+
+في الدرس السابق قدم لنا الاستاذ قاعدة بيانات لمعرض سيارات نحن قمنا بعمل Import Data أو استيراد البيانات 
+هي عملية جلب بيانات من مصدر خارجي وإدخالها إلى قاعدة بياناتك أو برنامجك الحالي، بحيث تصبح جزءًا من النظام الذي تعمل عليه.
+
+رح نتعلم مبدأ يمكن تطبيقه على العديد من الامور Lookup Tables او الجداول المرجعية يقصد به ان افصل البيانات الى جداول خاصة بها 
+قمنا في الدرس السابق بصنع قاعدة بيانات اسمها CarData و بداخلها جدول اسمه CarDetails بداخله كل قاعدة البيانات الخاصة بمعرض السيارات 
+
+دعنا نقوم على CarData بالاتي 
+
+Select * From CarDetails
+
+رح يرجعلنا 311442 ريكورد بس رح تحصل في تكرار في هذا الجدول ما نسميه Denormalization
+رح نصنع جدول خاص بعامود Make لكن يجب ان تلاحظ الاتي
+
+Select Make From CarDetails  -- رح يجيب اسماء الشركات المصنعة لكن مكررة Denormalization
+
+رح نصفي التكرار Denormalization عن طريق اضافة Distinct للكويري
+
+Select Distinct Make From CarDetails  -- كذا حذفنا التكرار لكن لاحظ اسماء الشركات مش مرتبة ابجديا و انا كاحمد لن اقبل بذلك
+
+رح نرتب الاسماء عن طريق اضافة Order By الى الكويري السابقة 
+
+Select Distinct Make From CarDetails
+Order By Make Asc                                               -- كل البيانات معروضة بالترتيب الابجدي الانيق 
+
+
+الان نريد صنع Local Table او الجدول المحلي يخزن المعلومات التي عرضها هذا الجدول اسمه Makes
+فيه هذي الاعمدة
+
+MakeID النوع int و ستجعله PK و ايضا سنفعل له ميزة Identity او الترقيم التلقائي 
+مهمة ان يكون المعرف الخاص باسم الشركة
+
+MakeName النوع nvarchar(50) 
+مهمة ان يخزن فيه الاسم الخاص بالشركة 
+
+الان سندخل بيانات اسماء الشركات من جدول CarDetails الى جدول Makes بستخدام الكويري الاتية
+
+Insert Into Makes
+Select Distinct Make From CarDetails
+Order By Make Asc                                        -- رح يقوم زي الشاطر بنقل الاسماء و يعطيهم معرف حسب الترقيم التلقائي 
+
+الان شغل الكويري الاتية و تفرج رح تشوف نتيجة الاكشن يلي فعلناه 
+
+Select * From Makes  -- صار هذا جدول منفصل يخص اسماء المصنعين و معرف لكل مصنع فيهم
+
+
+الان نريد ان ندخل عامود MakeID تبع Makes الى CarDetails و هذه العملية يبغالها مرحلتين
+المرحلة الاولى 
+نعرف عامود جديد في CarDetails نسميه MakeID ثم لازم نخليه داعم Null 
+لازم يكون العاممود بنفس النوع اي MakeID نوع int عشان الخطوة الثانية محتاجة هذا الامر 
+
+بعد تنفيذ المرحلة الاولى اكتب الكويري الاتية و رح تلاحظ ان صار في عامود جديد اسمه MakeID موضوع فيه Null في كل الريكورد
+
+Select * From CarDetails   -- بكذا انت جاهز للمرحلة القادمة يا جميل
+
+
+المرحلة الثانية
+الان سنجعل اسم كل شركة في CarDetails ترتبط بالمعرف الخاص بها MakeID من Makes 
+ذلك يحدث عن طريق اننا نبحث في الاسم نفسه في CarDetails.Make و Makes.MakeName
+في كل مرة يحصل التطابق نرجع رقم  Makes.MakeID الى MakeID التي توجد في CarDetails
+هذه العملية رح تمشي على كل الريكورد كانها for loop عليهم كلهم 
+
+-- العملية رح تمشي على كل الريكورد كانها for loop عليهم كلهم 
+
+Update CarDetails
+set MakeID = (select MakeID from Makes where  Makes.MakeName=CarDetails.Make)   
+
+الان بكل بساطة نحذف عامود Make من CarDetails عشان لو نبغى بكل بساطة نسوى الكويري الاتية بستخدام الكويري دزاينر
+
+-- بستخدام Query Designer نقدر نرتب و نسوي يلي نبغاه 
+
+SELECT       Makes.MakeName, CarDetails.*
+FROM            CarDetails INNER JOIN
+                         Makes ON CarDetails.MakeID = Makes.MakeID
+
+*******************************************
+
+كل ما طبقناه على Make في CarDetails و فصلناه الى جدول خاص به اسمه Makes 
+نقدر نطبقه على Model و Drive_Type فموضوع تنظيف البيانات بياخذ وقت لكنه مستاهل 
+و اليوم تعلمنا كيف ننظف البيانات التي خرجت لنا من عملية Import Data
+ 
+لا تنسى الفرق بين Import و Export  
+
+Export إخراج البيانات من النظام إلى ملف أو نظام آخر
+
+Import جلب البيانات من الخارج إلى النظام 
+
+------------------- < خاتمة الدرس > -------------------
+
+تمرن على صنع جدول خاص لكل من Model و Drive_Type 
+
+
+-- تمرين 1 على فصل جدول خاص Model
+
+Select Distinct Model From CarDetails
+Order By Model Asc
+
+-- هنا نصنع جدول جديد اسم Models
+
+Select * From Models
+
+
+Insert Into Models
+Select Distinct Model From CarDetails
+Order By Model Asc
+
+
+Update CarDetails
+Set ModelID = ( Select ModelID From Models Where Models.ModelName = CarDetails.Model) 
+
+-- اخيرا نحذف العامود الذي فصلناه من الجدول
+
+-------------------------------
+
+-- تمرين 2 على فصل جدول خاص Drive_Type
+
+Select Distinct Drive_Type  From CarDetails
+Order By Drive_Type  Asc
+
+-- هنا نصنع جدول جديد اسم DrivesType
+
+Select * From DrivesType 
+
+
+Insert Into DrivesType
+Select Distinct Drive_Type  From CarDetails
+Order By Drive_Type  Asc
+
+
+Update CarDetails
+Set Drive_TypeID = 
+(
+Select Drive_TypeID From DrivesType
+Where DrivesType.Drive_TypeName = CarDetails.Drive_Type
+) 
+
+-- اخيرا نحذف العامود الذي فصلناه من الجدول
