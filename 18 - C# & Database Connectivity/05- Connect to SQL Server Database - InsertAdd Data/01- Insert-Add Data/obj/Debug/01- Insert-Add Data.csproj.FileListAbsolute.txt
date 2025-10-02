@@ -1,0 +1,7 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\bin\Debug\01- Insert-Add Data.exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\bin\Debug\01- Insert-Add Data.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\bin\Debug\01- Insert-Add Data.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\obj\Debug\01- Insert-Add Data.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\obj\Debug\01- Insert-Add Data.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\obj\Debug\01- Insert-Add Data.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\05- Connect to SQL Server Database - InsertAdd Data\01- Insert-Add Data\obj\Debug\01- Insert-Add Data.pdb
