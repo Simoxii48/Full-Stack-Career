@@ -1,0 +1,8 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\bin\Debug\02- Parameterized Query.exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\bin\Debug\02- Parameterized Query.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\bin\Debug\02- Parameterized Query.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\obj\Debug\02- Parameterized Query.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\obj\Debug\02- Parameterized Query.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\obj\Debug\02- Parameterized Query.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\obj\Debug\02- Parameterized Query.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\04- Connect to SQL Server Database - Retrieve Data\01- ADO.NET Code Get ALL Contacts\02- Parameterized Query\obj\Debug\02- Parameterized Query.exe.config
