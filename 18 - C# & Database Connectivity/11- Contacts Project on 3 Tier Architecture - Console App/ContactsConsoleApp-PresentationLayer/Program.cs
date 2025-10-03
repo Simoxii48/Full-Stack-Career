@@ -29,10 +29,33 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        static void TestAddNewContact()
+        {
+            clsContacts Contact = new clsContacts();
+            
+            Contact.Firstname = "John";
+            Contact.Lastname = "Doe";
+            Contact.ContactEmail = "John_Doe@gmail.com";
+            Contact.ContactPhone = "123-456-7890";
+            Contact.ContactAddress = "123 Main St, Anytown, USA";
+            Contact.DateOfBirth = new DateTime(1977, 11, 6,10,30,0);
+            Contact.CountryID = 1; // Assuming 1 is a valid CountryID
+            Contact.ImagePath = ""; // No image
+
+            if(Contact.Save())
+                Console.WriteLine("New contact added successfully with ID: " + Contact.ContactID);
+            else
+                Console.WriteLine("Failed to add new contact.");
+        }
+
         static void Main(string[] args)
         {
+            // Test cases to find contacts by ID
             TestFindContactByID(1);
             TestFindContactByID(999); // Assuming 999 does not exist
+
+            // Test Case to add a new contact
+            TestAddNewContact();
 
             Console.ReadKey();
         }
