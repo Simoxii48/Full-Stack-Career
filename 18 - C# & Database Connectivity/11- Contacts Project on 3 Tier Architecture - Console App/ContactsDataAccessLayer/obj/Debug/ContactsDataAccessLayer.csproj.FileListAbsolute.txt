@@ -1,0 +1,6 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.dll
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsDataAccessLayer\obj\Debug\ContactsDataAccessLayer.pdb
