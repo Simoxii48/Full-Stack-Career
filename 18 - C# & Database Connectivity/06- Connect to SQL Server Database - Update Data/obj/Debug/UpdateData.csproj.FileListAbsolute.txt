@@ -1,0 +1,7 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\obj\Debug\UpdateData.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\obj\Debug\UpdateData.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\bin\Debug\UpdateData.exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\bin\Debug\UpdateData.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\bin\Debug\UpdateData.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\obj\Debug\UpdateData.exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\06- Connect to SQL Server Database - Update Data\obj\Debug\UpdateData.pdb
