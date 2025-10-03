@@ -30,7 +30,13 @@ namespace ContactsDataAccessLayer
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     CountryID = (int) reader["CountryID"];
                     ImagePath = (string) reader["ImagePath"];
-                    
+
+                    // ImagePath can be null in the database, so we need to check for DBNull
+                    if (reader["ImagePath"] == DBNull.Value)
+                        ImagePath = "";
+                    else
+                        ImagePath = (string)reader["ImagePath"];
+
                     isFound = true;
                 }
                 else
@@ -48,6 +54,50 @@ namespace ContactsDataAccessLayer
             }
 
             return isFound;
+        }
+    
+        public static int AddNewContact(string Firstname, string Lastname, string ContactEmail, string ContactPhone,
+            string ContactAddress, DateTime DateOfBirth, int CountryID, string ImagePath)
+        {
+            int newContactID = -1; // Default value indicating failure
+            SqlConnection connection = new SqlConnection(ClsDataAccessSettings.connectionString);
+            string query = "Insert into Contacts (Firstname, Lastname, Email, Phone, Address, DateOfBirth, CountryID, ImagePath) " +
+                           "Values (@Firstname, @Lastname, @Email, @Phone, @Address, @DateOfBirth, @CountryID, @ImagePath); " +
+                           "SELECT SCOPE_IDENTITY();"; // Retrieve the newly generated ContactID
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@Firstname", Firstname);
+            command.Parameters.AddWithValue("@Lastname", Lastname);
+            command.Parameters.AddWithValue("@Email", ContactEmail);
+            command.Parameters.AddWithValue("@Phone", ContactPhone);
+            command.Parameters.AddWithValue("@Address", ContactAddress);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+            
+            // Handle potential null for ImagePath
+            if (string.IsNullOrEmpty(ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+            else
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            
+            try // will execute only if no exception occurs
+            {
+                connection.Open();
+                object result = command.ExecuteScalar(); // Execute the insert and get the new ContactID
+                if (result != null && int.TryParse(result.ToString(), out int ContactID))
+                {
+                    newContactID = ContactID; // Successfully retrieved new ContactID
+                }
+            }
+            catch (Exception ex) // will execute only if an exception occurs
+            {
+                throw new Exception("Error in AddNewContact: " + ex.Message);
+            }
+            finally // will execute always
+            {
+                connection.Close(); // best practice to close the connection in the finally block if error occurs or not ensures connection is closed
+            }
+            
+            return newContactID;
         }
     }
 }
