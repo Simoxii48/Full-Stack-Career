@@ -1,11 +1,15 @@
 ﻿using System;
 using System.Data;
+using System.Security.Cryptography;
 using ContactsDataAccessLayer;
 
 namespace ContactsBusinessLayer
 {
     public class clsContacts
     {
+        private enMode Mode; // To track whether we are adding a new contact or updating an existing one
+        public enum enMode { Addnew, Update } // Enum to represent the mode
+
         // Properties
         public int ContactID { get; set; }
         public string Firstname { get; set; }
@@ -18,7 +22,7 @@ namespace ContactsBusinessLayer
         public string ImagePath { get; set; }
 
         // Constructor
-        clsContacts(int contactID, string firstname, string lastname, string contactEmail, string contactPhone,
+        private clsContacts(int contactID, string firstname, string lastname, string contactEmail, string contactPhone,
             string contactAddress, DateTime dateOfBirth, int countryID, string imagePath)
         {
             ContactID = contactID;
@@ -30,6 +34,32 @@ namespace ContactsBusinessLayer
             DateOfBirth = dateOfBirth;
             CountryID = countryID;
             ImagePath = imagePath;
+
+            Mode = enMode.Update;
+        }
+
+        private bool _AddNewContact()
+        {
+            // Call the data access layer to add a new contact
+            this.ContactID = ClsContactsDataAccess.AddNewContact(this.Firstname, this.Lastname, this.ContactEmail, this.ContactPhone, this.ContactAddress,
+                this.DateOfBirth, this.CountryID, this.ImagePath);
+            
+            return this.ContactID != -1; // Return true if ContactID is assigned (not -1)
+        }
+
+        public clsContacts()
+        {
+            this.ContactID = -1; // New contact, ID will be assigned by the database
+            this.Firstname = "";
+            this.Lastname = "";
+            this.ContactEmail = "";
+            this.ContactPhone = "";
+            this.ContactAddress = "";
+            this.DateOfBirth = DateTime.Now;
+            this.CountryID = -1; // Default CountryID
+            this.ImagePath = "";
+
+            Mode = enMode.Addnew;
         }
 
         public static clsContacts Find(int ContactID)
@@ -43,6 +73,27 @@ namespace ContactsBusinessLayer
                 return new clsContacts(ContactID, Firstname, Lastname, ContactEmail, ContactPhone, ContactAddress, DateOfBirth, CountryID, ImagePath);
             else
                 return null;
+        }
+
+        public bool Save()
+        {
+            switch(Mode) // Check the current mode
+            {
+                case enMode.Addnew: // If we are in Addnew mode
+                    if (_AddNewContact()) // Try to add the new contact
+                    {
+                        Mode = enMode.Update; // Change mode to Update after successful addition
+                        return true; // Return true indicating success
+                    }
+                    else // If adding the new contact failed
+                        return false; // Return false indicating failure
+                
+                case enMode.Update: // If we are in Update mode
+                    return false;
+                
+                default:
+                    return false; // Ensure all code paths return a value
+            }
         }
     }
 }
