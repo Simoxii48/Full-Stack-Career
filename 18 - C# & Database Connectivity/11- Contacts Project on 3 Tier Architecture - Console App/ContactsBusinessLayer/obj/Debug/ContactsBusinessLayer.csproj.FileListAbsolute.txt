@@ -1,0 +1,9 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.dll
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\bin\Debug\ContactsBusinessLayer.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.dll
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\bin\Debug\ContactsDataAccessLayer.pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\obj\Debug\Contacts.DFB66D76.Up2Date
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.dll
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\11- Contacts Project on 3 Tier Architecture - Console App\ContactsBusinessLayer\obj\Debug\ContactsBusinessLayer.pdb
