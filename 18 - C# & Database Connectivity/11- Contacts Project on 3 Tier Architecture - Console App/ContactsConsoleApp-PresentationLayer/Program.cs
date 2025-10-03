@@ -48,6 +48,32 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Failed to add new contact.");
         }
 
+        static void TestUpdateContact(int ContactID)
+        {
+            clsContacts contact = clsContacts.Find(ContactID);
+            
+            if (contact != null)
+            {
+                contact.Firstname = "Cristiana"; // Update first name
+                contact.Lastname = "Domain"; // Update last name
+                contact.ContactEmail = "exemple@gmail.com"; // Update email
+                contact.ContactPhone = "987-654-3210"; // Update phone number
+                contact.ContactAddress = "456 Another St, Othertown, USA"; // Update address
+                contact.DateOfBirth = new DateTime(1985, 5, 15); // Update date of birth
+                contact.CountryID = 2; // Update country ID
+                contact.ImagePath = "path/to/new/image.jpg"; // Update image path
+
+                if(contact.Save())
+                    Console.WriteLine("Contact with ID " + ContactID + " updated successfully.");
+                else
+                    Console.WriteLine("Failed to update contact with ID " + ContactID + ".");
+            }
+            else
+            {
+                Console.WriteLine("Contact with ID " + ContactID + " not found for update.");
+            }
+        }
+
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
@@ -55,7 +81,10 @@ namespace ContactsConsoleApp_PresentationLayer
             TestFindContactByID(999); // Assuming 999 does not exist
 
             // Test Case to add a new contact
-            TestAddNewContact();
+            //TestAddNewContact();
+
+            // Test Case to update an existing contact
+            TestUpdateContact(9); // Assuming 1 exists
 
             Console.ReadKey();
         }
