@@ -47,6 +47,13 @@ namespace ContactsBusinessLayer
             return this.ContactID != -1; // Return true if ContactID is assigned (not -1)
         }
 
+        private bool _UpdateContact()
+        {
+            // Call the data access layer to update the contact
+            return ClsContactsDataAccess.UpdateContact(this.ContactID, this.Firstname, this.Lastname, this.ContactEmail, this.ContactPhone, this.ContactAddress,
+                this.DateOfBirth, this.CountryID, this.ImagePath);
+        }
+
         public clsContacts()
         {
             this.ContactID = -1; // New contact, ID will be assigned by the database
@@ -89,8 +96,8 @@ namespace ContactsBusinessLayer
                         return false; // Return false indicating failure
                 
                 case enMode.Update: // If we are in Update mode
-                    return false;
-                
+                       return _UpdateContact(); // Call the update method and return its result
+
                 default:
                     return false; // Ensure all code paths return a value
             }
