@@ -29,13 +29,12 @@ namespace ContactsDataAccessLayer
                     ContactAddress = reader["Address"].ToString();
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
                     CountryID = (int) reader["CountryID"];
-                    ImagePath = (string) reader["ImagePath"];
 
                     // ImagePath can be null in the database, so we need to check for DBNull
                     if (reader["ImagePath"] == DBNull.Value)
                         ImagePath = "";
                     else
-                        ImagePath = (string)reader["ImagePath"];
+                        ImagePath = reader["ImagePath"].ToString();
 
                     isFound = true;
                 }
@@ -98,6 +97,56 @@ namespace ContactsDataAccessLayer
             }
             
             return newContactID;
+        }
+    
+        public static bool UpdateContact(int ContactID, string Firstname, string Lastname, string ContactEmail, string ContactPhone,
+            string ContactAddress, DateTime DateOfBirth, int CountryID, string ImagePath)
+        {
+            bool isUpdated = false;
+            SqlConnection connection = new SqlConnection(ClsDataAccessSettings.connectionString);
+            string query = "Update Contacts " +
+                            "set Firstname=@Firstname, " +
+                            "Lastname=@Lastname, " +
+                            "Email=@Email, " +
+                            "Phone=@Phone, " +
+                            "Address=@Address, " +
+                            "DateOfBirth=@DateOfBirth, " +
+                            "CountryID=@CountryID, " +
+                            "ImagePath=@ImagePath " +
+                "where ContactID=@ContactID";
+            
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+            command.Parameters.AddWithValue("@Firstname", Firstname);
+            command.Parameters.AddWithValue("@Lastname", Lastname);
+            command.Parameters.AddWithValue("@Email", ContactEmail);
+            command.Parameters.AddWithValue("@Phone", ContactPhone);
+            command.Parameters.AddWithValue("@Address", ContactAddress);
+            command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+            
+            // Handle potential null for ImagePath
+            if (string.IsNullOrEmpty(ImagePath))
+                command.Parameters.AddWithValue("@ImagePath", DBNull.Value);
+            else
+                command.Parameters.AddWithValue("@ImagePath", ImagePath);
+            
+            try // will execute only if no exception occurs
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                isUpdated = rowsAffected > 0; // If at least one row was affected, the update was successful
+            }
+            catch (Exception ex) // will execute only if an exception occurs
+            {
+                throw new Exception("Error in UpdateContact: " + ex.Message);
+            }
+            finally // will execute always
+            {
+                connection.Close(); // best practice to close the connection in the finally block if error occurs or not ensures connection is closed
+            }
+            
+            return isUpdated;
         }
     }
 }
