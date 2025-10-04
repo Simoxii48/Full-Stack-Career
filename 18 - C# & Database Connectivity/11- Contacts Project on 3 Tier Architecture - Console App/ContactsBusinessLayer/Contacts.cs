@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Security.Cryptography;
 using ContactsDataAccessLayer;
 
 namespace ContactsBusinessLayer
@@ -66,7 +65,7 @@ namespace ContactsBusinessLayer
             this.CountryID = -1; // Default CountryID
             this.ImagePath = "";
 
-            Mode = enMode.Addnew;
+            Mode = enMode.Addnew; // Set mode to Addnew
         }
 
         public static clsContacts Find(int ContactID)
@@ -80,6 +79,11 @@ namespace ContactsBusinessLayer
                 return new clsContacts(ContactID, Firstname, Lastname, ContactEmail, ContactPhone, ContactAddress, DateOfBirth, CountryID, ImagePath);
             else
                 return null;
+        }
+
+        public static bool DeleteContact(int ContactID)
+        {
+            return ClsContactsDataAccess.DeleteContact(ContactID);
         }
 
         public bool Save()
