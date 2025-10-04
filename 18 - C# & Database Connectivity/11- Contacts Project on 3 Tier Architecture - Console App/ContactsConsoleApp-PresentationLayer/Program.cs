@@ -77,10 +77,19 @@ namespace ContactsConsoleApp_PresentationLayer
         // Delete Case to delete a contact by ID, no need to find the contact first and consume memory then delete it, we will delete it directly by ID from the data access layer
         static void TestDeleteContact(int ContactID)
         {
-            if (clsContacts.DeleteContact(ContactID)) // Call the Delete method
-                Console.WriteLine("Contact with ID " + ContactID + " deleted successfully.");
-            else
-                Console.WriteLine("Failed to delete contact with ID " + ContactID + ".");
+            // check if contact exists
+            if (clsContacts.IsContactExists(ContactID))
+            {
+                // delete the contact
+                if (clsContacts.DeleteContact(ContactID))
+                    Console.WriteLine("Contact with ID " + ContactID + " deleted successfully.");
+                else
+                    Console.WriteLine("Failed to delete contact with ID " + ContactID + ".");
+            }
+            else // contact does not exist
+            {
+                Console.WriteLine("Contact with ID " + ContactID + " does not exist, cannot delete.");
+            }
         }
 
         static void ListContacts()
