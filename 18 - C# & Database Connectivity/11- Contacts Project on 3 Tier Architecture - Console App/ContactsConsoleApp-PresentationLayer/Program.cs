@@ -82,20 +82,35 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("Failed to delete contact with ID " + ContactID + ".");
         }
+
+        static void ListContacts()
+        {
+            DataTable dataTable = clsContacts.GetAllContacts();
+
+            Console.WriteLine("List of all contacts:");
+            foreach (DataRow row in dataTable.Rows)
+            {
+                Console.WriteLine($"ID: {row["ContactID"]}, Name: {row["Firstname"]} {row["Lastname"]}, Email: {row["Email"]}, Phone: {row["Phone"]}");
+            }
+            Console.WriteLine();
+        }
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
-            TestFindContactByID(1);
-            TestFindContactByID(999); // Assuming 999 does not exist
+            //TestFindContactByID(1);
+            //TestFindContactByID(999); // Assuming 999 does not exist
 
             // Test Case to add a new contact
-            TestAddNewContact();
+            //TestAddNewContact();
 
             // Test Case to update an existing contact
-            TestUpdateContact(9); // Assuming 1 exists
+            //TestUpdateContact(9); // Assuming 1 exists
 
             // Test case to delete a contact
-            TestDeleteContact(10); // Assuming 10 exists
+            //TestDeleteContact(10); // Assuming 10 exists
+
+            // List all Contacts
+            ListContacts();
 
             Console.ReadKey();
         }
