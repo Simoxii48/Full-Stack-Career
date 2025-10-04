@@ -148,5 +148,32 @@ namespace ContactsDataAccessLayer
             
             return isUpdated;
         }
+    
+        public static bool DeleteContact(int ContactID)
+        {
+            bool isDeleted = false;
+
+            SqlConnection connection = new SqlConnection(ClsDataAccessSettings.connectionString);
+            string query = "Delete from Contacts where ContactID=@ContactID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+            
+            try // will execute only if no exception occurs
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                isDeleted = rowsAffected > 0; // If at least one row was affected, the deletion was successful
+            }
+            catch (Exception ex) // will execute only if an exception occurs
+            {
+                throw new Exception("Error in DeleteContact: " + ex.Message);
+            }
+            finally // will execute always
+            {
+                connection.Close(); // best practice to close the connection in the finally block if error occurs or not ensures connection is closed
+            }
+            
+            return isDeleted;
+        }
     }
 }
