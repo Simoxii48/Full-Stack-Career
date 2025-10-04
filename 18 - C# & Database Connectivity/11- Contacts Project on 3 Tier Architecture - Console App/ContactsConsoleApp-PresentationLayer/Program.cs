@@ -29,7 +29,23 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine();
             }
         }
+        static void TestFindCountryByID(int CountryID)
+        {
+            clsCountries Country = clsCountries.Find(CountryID);
 
+            if (Country != null)
+            {
+                Console.WriteLine($"ID   : {Country.CountryID}");
+                Console.WriteLine($"Name : {Country.CountryName}");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Country with ID " + CountryID + " not found.");
+                Console.WriteLine();
+            }
+        }
+        
         static void TestAddNewContact()
         {
             clsContacts Contact = new clsContacts();
@@ -49,6 +65,24 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Failed to add new contact.");
         }
 
+        static void TestAddNewCountry()
+        {
+            clsCountries Country = new clsCountries();
+            Country.CountryName = "Egypt";
+
+            // Validate that country name is not empty
+            if (Country.CountryName == String.Empty)
+            {
+                Console.WriteLine("Country name cannot be empty.");
+                return;
+            }
+
+            // Save the new country
+            if (Country.Save())
+                Console.WriteLine("New country added successfully with ID: " + Country.CountryID);
+            else
+                Console.WriteLine("Failed to add new country.");
+        }
         static void TestUpdateContact(int ContactID)
         {
             clsContacts contact = clsContacts.Find(ContactID);
@@ -113,22 +147,6 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Contact with ID " + ContactID + " does not exist.");
         }
         
-        static void TestFindCountryByID(int CountryID)
-        {
-            clsCountries Country = clsCountries.Find(CountryID);
-
-            if(Country != null)
-            {
-                Console.WriteLine($"ID   : {Country.CountryID}");
-                Console.WriteLine($"Name : {Country.CountryName}");
-                Console.WriteLine();
-            }
-            else
-            {
-                Console.WriteLine("Country with ID " + CountryID + " not found.");
-                Console.WriteLine();
-            }
-        }
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
@@ -152,8 +170,11 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestIsContactExists(999); // Assuming 999 does not exist
 
             // Test Find Country by ID
-            TestFindCountryByID(1);
-            TestFindCountryByID(999); // Assuming 999 does not exist
+            //TestFindCountryByID(1);
+            //TestFindCountryByID(999); // Assuming 999 does not exist
+
+            // Test Add New Country
+            TestAddNewCountry();
 
             Console.ReadKey();
         }
