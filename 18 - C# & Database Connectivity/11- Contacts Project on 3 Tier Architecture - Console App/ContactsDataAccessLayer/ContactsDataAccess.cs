@@ -175,5 +175,38 @@ namespace ContactsDataAccessLayer
             
             return isDeleted;
         }
+
+        public static DataTable GetAllContacts()
+        {
+            DataTable dt = new DataTable();
+            SqlConnection connection = new SqlConnection(ClsDataAccessSettings.connectionString);
+            string query = "Select * from Contacts"; // Select only necessary fields
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try // will execute only if no exception occurs
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader(); // Execute the command and get a data reader
+
+                if(reader.HasRows) // If there are rows to read
+                {
+                    dt.Load(reader); // Load the data from reader into DataTable
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex) // will execute only if an exception occurs
+            {
+                throw new Exception("Error in GetAllContacts: " + ex.Message);
+            }
+            finally // will execute always
+            {
+                connection.Close(); // best practice to close the connection in the finally block if error occurs or not ensures connection is closed
+            }
+
+            return dt;
+        }
+
+
     }
 }
