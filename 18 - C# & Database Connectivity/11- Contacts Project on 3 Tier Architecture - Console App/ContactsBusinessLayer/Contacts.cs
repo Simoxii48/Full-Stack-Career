@@ -91,6 +91,11 @@ namespace ContactsBusinessLayer
             return ClsContactsDataAccess.GetAllContacts();
         }
 
+        public static bool IsContactExists(int ContactID)
+        {
+            return ClsContactsDataAccess.IsContactExists(ContactID);
+        }
+
         public bool Save()
         {
             switch(Mode) // Check the current mode
