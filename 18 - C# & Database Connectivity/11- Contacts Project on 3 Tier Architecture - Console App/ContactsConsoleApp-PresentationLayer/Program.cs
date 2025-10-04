@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using ContactsBusinessLayer;
+using CountriesBusinessLayer;
 
 namespace ContactsConsoleApp_PresentationLayer
 {
@@ -111,27 +112,48 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("Contact with ID " + ContactID + " does not exist.");
         }
+        
+        static void TestFindCountryByID(int CountryID)
+        {
+            clsCountries Country = clsCountries.Find(CountryID);
+
+            if(Country != null)
+            {
+                Console.WriteLine($"ID   : {Country.CountryID}");
+                Console.WriteLine($"Name : {Country.CountryName}");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Country with ID " + CountryID + " not found.");
+                Console.WriteLine();
+            }
+        }
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
-            TestFindContactByID(1);
-            TestFindContactByID(999); // Assuming 999 does not exist
+            //TestFindContactByID(1);
+            //TestFindContactByID(999); // Assuming 999 does not exist
 
-            // Test Case to add a new contact
-            TestAddNewContact();
+            //// Test Case to add a new contact
+            //TestAddNewContact();
 
-            // Test Case to update an existing contact
-            TestUpdateContact(9); // Assuming 1 exists
+            //// Test Case to update an existing contact
+            //TestUpdateContact(9); // Assuming 1 exists
 
-            // Test case to delete a contact
-            TestDeleteContact(10); // Assuming 10 exists
+            //// Test case to delete a contact
+            //TestDeleteContact(10); // Assuming 10 exists
 
-            // List all Contacts
-            ListContacts();
+            //// List all Contacts
+            //ListContacts();
 
-            // Test case to check if a contact exists
-            TestIsContactExists(1);
-            TestIsContactExists(999); // Assuming 999 does not exist
+            //// Test case to check if a contact exists
+            //TestIsContactExists(1);
+            //TestIsContactExists(999); // Assuming 999 does not exist
+
+            // Test Find Country by ID
+            TestFindCountryByID(1);
+            TestFindCountryByID(999); // Assuming 999 does not exist
 
             Console.ReadKey();
         }
