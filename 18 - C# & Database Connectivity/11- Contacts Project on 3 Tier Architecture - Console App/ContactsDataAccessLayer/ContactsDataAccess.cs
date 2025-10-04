@@ -207,6 +207,31 @@ namespace ContactsDataAccessLayer
             return dt;
         }
 
+        public static bool IsContactExists(int ContactID)
+        {
+            bool exists = false;
+            SqlConnection connection = new SqlConnection(ClsDataAccessSettings.connectionString);
+            string query = "Select Found=1 from Contacts where ContactID=@ContactID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ContactID", ContactID);
+            
+            try // will execute only if no exception occurs
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                exists = reader.HasRows; // If a record is found, the contact exists
+                reader.Close();
+            }
+            catch (Exception ex) // will execute only if an exception occurs
+            {
+                throw new Exception("Error in IsContactExists: " + ex.Message);
+            }
+            finally // will execute always
+            {
+                connection.Close(); // best practice to close the connection in the finally block if error occurs or not ensures connection is closed
+            }
 
+            return exists;
+        }
     }
 }
