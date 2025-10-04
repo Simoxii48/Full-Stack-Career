@@ -94,23 +94,35 @@ namespace ContactsConsoleApp_PresentationLayer
             }
             Console.WriteLine();
         }
+
+        static void TestIsContactExists(int ContactID)
+        {
+            if (clsContacts.IsContactExists(ContactID))
+                Console.WriteLine("Contact with ID " + ContactID + " exists.");
+            else
+                Console.WriteLine("Contact with ID " + ContactID + " does not exist.");
+        }
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
-            //TestFindContactByID(1);
-            //TestFindContactByID(999); // Assuming 999 does not exist
+            TestFindContactByID(1);
+            TestFindContactByID(999); // Assuming 999 does not exist
 
             // Test Case to add a new contact
-            //TestAddNewContact();
+            TestAddNewContact();
 
             // Test Case to update an existing contact
-            //TestUpdateContact(9); // Assuming 1 exists
+            TestUpdateContact(9); // Assuming 1 exists
 
             // Test case to delete a contact
-            //TestDeleteContact(10); // Assuming 10 exists
+            TestDeleteContact(10); // Assuming 10 exists
 
             // List all Contacts
             ListContacts();
+
+            // Test case to check if a contact exists
+            TestIsContactExists(1);
+            TestIsContactExists(999); // Assuming 999 does not exist
 
             Console.ReadKey();
         }
