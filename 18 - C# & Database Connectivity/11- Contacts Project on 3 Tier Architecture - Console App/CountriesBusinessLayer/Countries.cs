@@ -48,6 +48,13 @@ namespace CountriesBusinessLayer
             return this.CountryID != -1; // Return true if CountryID is assigned
         }
 
+        // Private method to update an existing country
+        private bool _UpdateCountry()
+        {   
+            // Call the data access layer to update the country
+            return clsCountriesDataAccess.UpdateCountry(this.CountryID, this.CountryName);
+        }
+
         // Save method
         public bool Save()
         {
@@ -61,8 +68,10 @@ namespace CountriesBusinessLayer
                     }
                     else
                         return false;
+                
                 case enMode.Update:
-
+                    return _UpdateCountry();
+                
                 default:
                     return false;
             }
