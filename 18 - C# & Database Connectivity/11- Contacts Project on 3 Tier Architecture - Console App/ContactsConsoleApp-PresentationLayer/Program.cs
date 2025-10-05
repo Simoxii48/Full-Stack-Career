@@ -163,11 +163,18 @@ namespace ContactsConsoleApp_PresentationLayer
         // Delete Case to delete a country by ID, no need to find the country first and consume memory then delete it, we will delete it directly by ID from the data access layer
         static void TestDeleteCountry(int CountryId)
         {
-            // delete the country
-            if(clsCountries.DeleteCountry(CountryId))
-                Console.WriteLine("Country with ID " + CountryId + " deleted successfully.");
-            else
-                Console.WriteLine("Failed to delete country with ID " + CountryId + ".");
+            if(clsCountries.IsCountryExists(CountryId))
+            {
+                // delete the country
+                if(clsCountries.DeleteCountry(CountryId))
+                    Console.WriteLine("Country with ID " + CountryId + " deleted successfully.");
+                else
+                    Console.WriteLine("Failed to delete country with ID " + CountryId + ".");
+            }
+            else // country does not exist
+            {
+                Console.WriteLine("Country with ID " + CountryId + " does not exist, cannot delete.");
+            }
         }
 
         // // List all contacts
@@ -182,7 +189,6 @@ namespace ContactsConsoleApp_PresentationLayer
             }
             Console.WriteLine();
         }
-
 
         // List all countries
         static void ListCountries()
@@ -206,9 +212,16 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Test case to check if a country exists by ID
-
+        static void TestIsCountryExists(int CountryID)
+        {
+            if (clsCountries.IsCountryExists(CountryID))
+                Console.WriteLine("Country with ID " + CountryID + " exists.");
+            else
+                Console.WriteLine("Country with ID " + CountryID + " does not exist.");
+        }
 
         // Test case to check if a country exists by name
+
 
         static void Main(string[] args)
         {
@@ -246,7 +259,10 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestDeleteCountry(10); // Assuming 10 exists
 
             // List all countries
-            ListCountries();
+            //ListCountries();
+
+            // Test case to check if a country exists by ID
+            TestIsCountryExists(11);
 
             Console.ReadKey();
         }
