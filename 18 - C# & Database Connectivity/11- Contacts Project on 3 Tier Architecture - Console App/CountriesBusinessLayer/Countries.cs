@@ -61,6 +61,12 @@ namespace CountriesBusinessLayer
             return clsCountriesDataAccess.DeleteCountry(CountryID);
         }
 
+        // Get all countries
+        public static DataTable GetAllCountries()
+        {
+            return clsCountriesDataAccess.GetAllCountries();
+        }
+
         // Save method
         public bool Save()
         {
