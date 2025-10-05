@@ -6,6 +6,7 @@ namespace CountriesDataAccessLayer
 {
     public class clsCountriesDataAccess
     {
+        // Method to find a country by its ID
         public static bool FindCountryByID(int CountryId, ref string countryName)
         {
             bool isCountryFound = false;
@@ -43,6 +44,7 @@ namespace CountriesDataAccessLayer
             return isCountryFound;
         }
 
+        // Method to Add a country by its ID
         public static int AddNewCountry(string countryName)
         {
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
@@ -79,6 +81,7 @@ namespace CountriesDataAccessLayer
             return newCountryID;
         }
 
+        // Method to update a country by its ID
         public static bool UpdateCountry(int CountryID, string countryName)
         {
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
@@ -104,6 +107,33 @@ namespace CountriesDataAccessLayer
             }
             
             return isUpdated;
+        }
+
+        // Method to delete a country by its ID
+        public static bool DeleteCountry(int CountryID)
+        {
+            SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
+            string query = "delete from Countries where CountryID = @CountryID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+            bool isDeleted = false;
+           
+            try
+            {
+                connection.Open();
+                int rowsAffected = command.ExecuteNonQuery();
+                isDeleted = rowsAffected > 0;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error deleting country: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return isDeleted;
         }
     }
 }
