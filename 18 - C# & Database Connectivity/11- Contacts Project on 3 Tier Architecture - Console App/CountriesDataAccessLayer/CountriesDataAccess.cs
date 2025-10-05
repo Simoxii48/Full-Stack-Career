@@ -167,5 +167,33 @@ namespace CountriesDataAccessLayer
 
             return dataTable;
         }
+
+        // Method to check if a country exists
+        public static bool IsCountryExists(int CountryID)
+        {
+            SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
+            string query = "SELECT found=1 FROM Countries WHERE CountryID = @CountryID";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryID", CountryID);
+            bool exists = false;
+            
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                exists = reader.HasRows;
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error checking if country exists: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return exists;
+        }
     }
 }
