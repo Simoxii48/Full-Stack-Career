@@ -158,7 +158,14 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Delete Case to delete a country by ID, no need to find the country first and consume memory then delete it, we will delete it directly by ID from the data access layer
-
+        static void TestDeleteCountry(int CountryId)
+        {
+            // delete the country
+            if(clsCountries.DeleteCountry(CountryId))
+                Console.WriteLine("Country with ID " + CountryId + " deleted successfully.");
+            else
+                Console.WriteLine("Failed to delete country with ID " + CountryId + ".");
+        }
 
         // // List all contacts
         static void ListContacts()
@@ -219,8 +226,10 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestAddNewCountry();
 
             // Test Update Country
-            TestUpdateCountry(9); // Assuming 1 exists
+            //TestUpdateCountry(9); // Assuming 1 exists
 
+            // Test case to delete a country
+            TestDeleteCountry(10); // Assuming 10 exists
 
             Console.ReadKey();
         }
