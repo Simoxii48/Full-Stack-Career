@@ -49,6 +49,9 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        // Test case to find a country by name
+
+
         // Test Case to add a new contact
         static void TestAddNewContact()
         {
@@ -170,10 +173,10 @@ namespace ContactsConsoleApp_PresentationLayer
         // // List all contacts
         static void ListContacts()
         {
-            DataTable dataTable = clsContacts.GetAllContacts();
+            DataTable contactDataTable = clsContacts.GetAllContacts();
 
             Console.WriteLine("List of all contacts:");
-            foreach (DataRow row in dataTable.Rows)
+            foreach (DataRow row in contactDataTable.Rows)
             {
                 Console.WriteLine($"ID: {row["ContactID"]}, Name: {row["Firstname"]} {row["Lastname"]}, Email: {row["Email"]}, Phone: {row["Phone"]}");
             }
@@ -182,7 +185,16 @@ namespace ContactsConsoleApp_PresentationLayer
 
 
         // List all countries
-
+        static void ListCountries()
+        {
+            DataTable countriesDataTable = clsCountries.GetAllCountries();
+            Console.WriteLine("List All Countries : ");
+            foreach(DataRow row in countriesDataTable.Rows)
+            {
+                Console.WriteLine($"ID : {row["CountryID"]}, Name : {row["CountryName"]}");
+            }
+            Console.WriteLine();
+        }
 
         // Test case to check if a contact exists
         static void TestIsContactExists(int ContactID)
@@ -193,8 +205,10 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Contact with ID " + ContactID + " does not exist.");
         }
 
-        // Test case to check if a country exists
+        // Test case to check if a country exists by ID
 
+
+        // Test case to check if a country exists by name
 
         static void Main(string[] args)
         {
@@ -229,7 +243,10 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestUpdateCountry(9); // Assuming 1 exists
 
             // Test case to delete a country
-            TestDeleteCountry(10); // Assuming 10 exists
+            //TestDeleteCountry(10); // Assuming 10 exists
+
+            // List all countries
+            ListCountries();
 
             Console.ReadKey();
         }
