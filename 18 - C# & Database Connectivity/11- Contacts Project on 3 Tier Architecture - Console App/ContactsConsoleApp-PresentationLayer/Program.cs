@@ -7,6 +7,7 @@ namespace ContactsConsoleApp_PresentationLayer
 {
     internal class Program
     {
+        // Test Case to find a contact by ID
         static void TestFindContactByID(int ContactID)
         {
             clsContacts contact = clsContacts.Find(ContactID);
@@ -29,6 +30,8 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine();
             }
         }
+
+        // Test Case to find a country by ID
         static void TestFindCountryByID(int CountryID)
         {
             clsCountries Country = clsCountries.Find(CountryID);
@@ -45,7 +48,8 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine();
             }
         }
-        
+
+        // Test Case to add a new contact
         static void TestAddNewContact()
         {
             clsContacts Contact = new clsContacts();
@@ -65,6 +69,7 @@ namespace ContactsConsoleApp_PresentationLayer
                 Console.WriteLine("Failed to add new contact.");
         }
 
+        // Test Case to add a new country
         static void TestAddNewCountry()
         {
             clsCountries Country = new clsCountries();
@@ -83,6 +88,8 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("Failed to add new country.");
         }
+
+        // Test Case to update an existing contact
         static void TestUpdateContact(int ContactID)
         {
             clsContacts contact = clsContacts.Find(ContactID);
@@ -109,6 +116,29 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        // Test Case to update an existing country
+        static void TestUpdateCountry(int CountryID)
+        {
+            clsCountries Country = clsCountries.Find(CountryID);
+
+            if (Country != null)
+            {
+                Country.CountryName = "Switzerland";
+
+                if (Country.CountryName == string.Empty)
+                {
+                    Console.WriteLine("Country name cannot be empty.");
+                    return;
+                }
+                    
+                if(Country.Save())
+                    Console.WriteLine("Country with ID " + CountryID + " updated successfully.");
+                else
+                    Console.WriteLine("Failed to update country with ID " + CountryID + ".");
+               
+            }
+        }
+
         // Delete Case to delete a contact by ID, no need to find the contact first and consume memory then delete it, we will delete it directly by ID from the data access layer
         static void TestDeleteContact(int ContactID)
         {
@@ -127,6 +157,10 @@ namespace ContactsConsoleApp_PresentationLayer
             }
         }
 
+        // Delete Case to delete a country by ID, no need to find the country first and consume memory then delete it, we will delete it directly by ID from the data access layer
+
+
+        // // List all contacts
         static void ListContacts()
         {
             DataTable dataTable = clsContacts.GetAllContacts();
@@ -139,6 +173,11 @@ namespace ContactsConsoleApp_PresentationLayer
             Console.WriteLine();
         }
 
+
+        // List all countries
+
+
+        // Test case to check if a contact exists
         static void TestIsContactExists(int ContactID)
         {
             if (clsContacts.IsContactExists(ContactID))
@@ -146,7 +185,10 @@ namespace ContactsConsoleApp_PresentationLayer
             else
                 Console.WriteLine("Contact with ID " + ContactID + " does not exist.");
         }
-        
+
+        // Test case to check if a country exists
+
+
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
@@ -174,7 +216,11 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestFindCountryByID(999); // Assuming 999 does not exist
 
             // Test Add New Country
-            TestAddNewCountry();
+            //TestAddNewCountry();
+
+            // Test Update Country
+            TestUpdateCountry(9); // Assuming 1 exists
+
 
             Console.ReadKey();
         }
