@@ -135,5 +135,37 @@ namespace CountriesDataAccessLayer
 
             return isDeleted;
         }
+
+        // Method to get all countries
+        public static DataTable GetAllCountries()
+        {
+            DataTable dataTable = new DataTable();
+            SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
+            string query = "select * from Countries";
+            SqlCommand sqlCommand = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = sqlCommand.ExecuteReader();
+
+                if(reader.HasRows)
+                {
+                    dataTable.Load(reader);
+                }
+
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error retrieving all countries: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+
+            return dataTable;
+        }
     }
 }
