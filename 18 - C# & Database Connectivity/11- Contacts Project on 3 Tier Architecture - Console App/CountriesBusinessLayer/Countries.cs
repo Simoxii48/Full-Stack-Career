@@ -67,6 +67,12 @@ namespace CountriesBusinessLayer
             return clsCountriesDataAccess.GetAllCountries();
         }
 
+        // Is country exists
+        public static bool IsCountryExists(int CountryID)
+        {
+            return clsCountriesDataAccess.IsCountryExists(CountryID);
+        }
+
         // Save method
         public bool Save()
         {
