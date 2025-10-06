@@ -82,6 +82,13 @@ namespace CountriesBusinessLayer
             return clsCountriesDataAccess.IsCountryExists(CountryID);
         }
 
+        // Is country exists by name
+        public static bool IsCountryExists(string CountryName)
+        {
+            int countryID = -1;
+            return clsCountriesDataAccess.FindCountry(CountryName, ref countryID);
+        }
+
         // Save method
         public bool Save()
         {
