@@ -7,7 +7,7 @@ namespace CountriesDataAccessLayer
     public class clsCountriesDataAccess
     {
         // Method to find a country by its ID
-        public static bool FindCountry(int CountryId, ref string countryName)
+        public static bool FindCountry(int CountryId, ref string countryName, ref string Code, ref string PhoneCode)
         {
             bool isCountryFound = false;
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
@@ -23,6 +23,9 @@ namespace CountriesDataAccessLayer
                 {
                     // Assuming CountryName is the second column in the Countries table
                     countryName = reader["CountryName"].ToString();
+                    Code = reader["Code"].ToString();
+                    PhoneCode = reader["PhoneCode"].ToString();
+
                     isCountryFound = true;
                 }
                 else
@@ -45,7 +48,7 @@ namespace CountriesDataAccessLayer
         }
 
         // Method to find a country by its Name
-        public static bool FindCountry(string countryName, ref int CountryID)
+        public static bool FindCountry(string countryName, ref int CountryID, ref string Code, ref string PhoneCode)
         {
             bool isCountryFound = false;
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
@@ -60,6 +63,9 @@ namespace CountriesDataAccessLayer
                 {
                     // Assuming CountryID is the first column in the Countries table
                     CountryID = Convert.ToInt32(reader["CountryID"]);
+                    Code = reader["Code"].ToString();
+                    PhoneCode = reader["PhoneCode"].ToString();
+
                     isCountryFound = true;
                 }
                 else
@@ -81,13 +87,16 @@ namespace CountriesDataAccessLayer
         }
 
         // Method to Add a country by its ID
-        public static int AddNewCountry(string countryName)
+        public static int AddNewCountry(string countryName, string Code, string PhoneCode)
         {
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
-            string query = "insert into Countries (CountryName) values (@CountryName);" +
+            string query = "insert into Countries (CountryName, Code, PhoneCode) values (@CountryName, @Code, @PhoneCode);" +
                 "Select Scope_Identity();";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@CountryName", countryName);
+            command.Parameters.AddWithValue("@Code", Code);
+            command.Parameters.AddWithValue("@PhoneCode", PhoneCode);
+
             int newCountryID = -1;
 
             try
@@ -118,13 +127,20 @@ namespace CountriesDataAccessLayer
         }
 
         // Method to update a country by its ID
-        public static bool UpdateCountry(int CountryID, string countryName)
+        public static bool UpdateCountry(int CountryID, string countryName, string Code, string PhoneCode)
         {
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
-            string query = "update Countries set CountryName = @countryName where CountryID = @CountryID";
+            string query = "update Countries set " +
+                "CountryName = @countryName " +
+                ", Code = @Code " +
+                ", PhoneCode = @PhoneCode " +
+                "where CountryID = @CountryID";
+
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@CountryID", CountryID);
             command.Parameters.AddWithValue("countryName", countryName);
+            command.Parameters.AddWithValue("Code", Code);
+            command.Parameters.AddWithValue("PhoneCode", PhoneCode);
             bool isUpdated = false;
 
             try
