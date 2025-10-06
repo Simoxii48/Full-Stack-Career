@@ -32,7 +32,7 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Test Case to find a country by ID
-        static void TestFindCountryByID(int CountryID)
+        static void TestFindCountry(int CountryID)
         {
             clsCountries Country = clsCountries.Find(CountryID);
 
@@ -50,7 +50,21 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Test case to find a country by name
-
+        static void TestFindCountry(string CountryName, int CountryID = -1)
+        {
+            clsCountries Country = clsCountries.Find(CountryName,CountryID);
+            if (Country != null)
+            {
+                Console.WriteLine($"ID   : {Country.CountryID}");
+                Console.WriteLine($"Name : {Country.CountryName}");
+                Console.WriteLine();
+            }
+            else
+            {
+                Console.WriteLine("Country with name " + CountryName + " not found.");
+                Console.WriteLine();
+            }
+        }
 
         // Test Case to add a new contact
         static void TestAddNewContact()
@@ -262,7 +276,12 @@ namespace ContactsConsoleApp_PresentationLayer
             //ListCountries();
 
             // Test case to check if a country exists by ID
-            TestIsCountryExists(11);
+            //TestIsCountryExists(11);
+
+            // Test case to check if a country exists by name
+            TestFindCountry("Egypt");
+            TestFindCountry(9);
+
 
             Console.ReadKey();
         }
