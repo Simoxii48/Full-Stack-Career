@@ -13,12 +13,16 @@ namespace CountriesBusinessLayer
         // Properties
         public int CountryID { get; set; }
         public string CountryName { get; set; }
+        public string Code { get; set; }
+        public string PhoneCode { get; set; }
 
         // Private constructor to enforce the use of the Find method
-        private clsCountries(int countryID, string countryName)
+        private clsCountries(int countryID, string countryName, string Code, string PhoneCode)
         {
-            CountryID = countryID;
-            CountryName = countryName;
+            this.CountryID = countryID;
+            this.CountryName = countryName;
+            this.Code = Code;
+            this.PhoneCode = PhoneCode;
 
             Mode = enMode.Update;
         }
@@ -26,7 +30,10 @@ namespace CountriesBusinessLayer
         // Default constructor
         public clsCountries()
         {
-            CountryName = "";
+            this.CountryName = "";
+            this.Code = "";
+            this.PhoneCode = "";
+
             Mode = enMode.AddNew;
         }
 
@@ -34,17 +41,20 @@ namespace CountriesBusinessLayer
         public static clsCountries Find(int CountryID)
         {
             string countryName = "";
-            if(clsCountriesDataAccess.FindCountry(CountryID,ref countryName))   
-                return new clsCountries(CountryID, countryName);
+            string Code = "";
+            string PhoneCode = "";
+
+            if (clsCountriesDataAccess.FindCountry(CountryID,ref countryName, ref Code, ref PhoneCode))   
+                return new clsCountries(CountryID, countryName,Code,PhoneCode);
             else
                 return null;
         }
 
         // Find a country by Name
-        public static clsCountries Find(string CountryName,int countryID)
+        public static clsCountries Find(string CountryName,int countryID, string Code, string PhoneCode)
         {
-            if(clsCountriesDataAccess.FindCountry(CountryName,ref countryID))   
-                return new clsCountries(countryID, CountryName);
+            if(clsCountriesDataAccess.FindCountry(CountryName,ref countryID, ref Code, ref PhoneCode))   
+                return new clsCountries(countryID, CountryName, Code, PhoneCode);
             else
                 return null;
         }
@@ -53,7 +63,7 @@ namespace CountriesBusinessLayer
         private bool _AddNewCountry()
         {
             // Call the data access layer to add a new country
-            this.CountryID = clsCountriesDataAccess.AddNewCountry(this.CountryName);
+            this.CountryID = clsCountriesDataAccess.AddNewCountry(this.CountryName,this.Code,this.PhoneCode);
             return this.CountryID != -1; // Return true if CountryID is assigned
         }
 
@@ -61,7 +71,7 @@ namespace CountriesBusinessLayer
         private bool _UpdateCountry()
         {   
             // Call the data access layer to update the country
-            return clsCountriesDataAccess.UpdateCountry(this.CountryID, this.CountryName);
+            return clsCountriesDataAccess.UpdateCountry(this.CountryID, this.CountryName,this.Code,this.PhoneCode);
         }
 
         // Public method to delete a country by ID
@@ -86,7 +96,10 @@ namespace CountriesBusinessLayer
         public static bool IsCountryExists(string CountryName)
         {
             int countryID = -1;
-            return clsCountriesDataAccess.FindCountry(CountryName, ref countryID);
+            string TypeCode = "";
+            string PhoneCode = "";
+
+            return clsCountriesDataAccess.FindCountry(CountryName, ref countryID, ref TypeCode, ref PhoneCode);
         }
 
         // Save method
