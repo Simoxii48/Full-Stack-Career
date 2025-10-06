@@ -34,8 +34,17 @@ namespace CountriesBusinessLayer
         public static clsCountries Find(int CountryID)
         {
             string countryName = "";
-            if(clsCountriesDataAccess.FindCountryByID(CountryID,ref countryName))   
+            if(clsCountriesDataAccess.FindCountry(CountryID,ref countryName))   
                 return new clsCountries(CountryID, countryName);
+            else
+                return null;
+        }
+
+        // Find a country by Name
+        public static clsCountries Find(string CountryName,int countryID)
+        {
+            if(clsCountriesDataAccess.FindCountry(CountryName,ref countryID))   
+                return new clsCountries(countryID, CountryName);
             else
                 return null;
         }
