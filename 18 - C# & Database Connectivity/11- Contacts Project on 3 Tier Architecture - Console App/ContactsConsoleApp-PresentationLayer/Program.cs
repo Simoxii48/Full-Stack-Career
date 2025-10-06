@@ -40,6 +40,8 @@ namespace ContactsConsoleApp_PresentationLayer
             {
                 Console.WriteLine($"ID   : {Country.CountryID}");
                 Console.WriteLine($"Name : {Country.CountryName}");
+                Console.WriteLine($"Code : {Country.Code}");
+                Console.WriteLine($"PhoneCode : {Country.PhoneCode}");
                 Console.WriteLine();
             }
             else
@@ -50,13 +52,15 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Test case to find a country by name
-        static void TestFindCountry(string CountryName, int CountryID = -1)
+        static void TestFindCountry(string CountryName, int CountryID = -1, string Code = "", string PhoneCode = "")
         {
-            clsCountries Country = clsCountries.Find(CountryName,CountryID);
+            clsCountries Country = clsCountries.Find(CountryName,CountryID,Code,PhoneCode);
             if (Country != null)
             {
                 Console.WriteLine($"ID   : {Country.CountryID}");
                 Console.WriteLine($"Name : {Country.CountryName}");
+                Console.WriteLine($"Code : {Country.Code}");
+                Console.WriteLine($"PhoneCode : {Country.PhoneCode}");
                 Console.WriteLine();
             }
             else
@@ -90,12 +94,15 @@ namespace ContactsConsoleApp_PresentationLayer
         static void TestAddNewCountry()
         {
             clsCountries Country = new clsCountries();
+            
             Country.CountryName = "Egypt";
+            Country.Code = "EG";
+            Country.PhoneCode = "+20";
 
             // Validate that country name is not empty
-            if (Country.CountryName == String.Empty)
+            if (Country.CountryName == String.Empty && Country.Code == string.Empty && Country.PhoneCode == string.Empty)
             {
-                Console.WriteLine("Country name cannot be empty.");
+                Console.WriteLine("Country name, code, and phone code cannot be empty.");
                 return;
             }
 
@@ -141,10 +148,12 @@ namespace ContactsConsoleApp_PresentationLayer
             if (Country != null)
             {
                 Country.CountryName = "Switzerland";
+                Country.Code = "CH";
+                Country.PhoneCode = "+41";
 
-                if (Country.CountryName == string.Empty)
+                if (Country.CountryName == string.Empty && Country.Code == string.Empty && Country.PhoneCode == string.Empty)
                 {
-                    Console.WriteLine("Country name cannot be empty.");
+                    Console.WriteLine("Country name, code, and phone code cannot be empty.");
                     return;
                 }
                     
@@ -246,49 +255,49 @@ namespace ContactsConsoleApp_PresentationLayer
         static void Main(string[] args)
         {
             // Test cases to find contacts by ID
-            //TestFindContactByID(1);
-            //TestFindContactByID(999); // Assuming 999 does not exist
+            TestFindContactByID(1);
+            TestFindContactByID(999); // Assuming 999 does not exist
 
             //// Test Case to add a new contact
-            //TestAddNewContact();
+            TestAddNewContact();
 
             //// Test Case to update an existing contact
-            //TestUpdateContact(9); // Assuming 1 exists
+            TestUpdateContact(9); // Assuming 1 exists
 
             //// Test case to delete a contact
-            //TestDeleteContact(10); // Assuming 10 exists
+            TestDeleteContact(10); // Assuming 10 exists
 
             //// List all Contacts
-            //ListContacts();
+            ListContacts();
 
             //// Test case to check if a contact exists
-            //TestIsContactExists(1);
-            //TestIsContactExists(999); // Assuming 999 does not exist
+            TestIsContactExists(1);
+            TestIsContactExists(999); // Assuming 999 does not exist
 
             // Test Find Country by ID
-            //TestFindCountryByID(1);
-            //TestFindCountryByID(999); // Assuming 999 does not exist
+            TestFindCountry(1);
+            TestFindCountry(999); // Assuming 999 does not exist
 
             // Test Add New Country
             //TestAddNewCountry();
 
             // Test Update Country
-            //TestUpdateCountry(9); // Assuming 1 exists
+            TestUpdateCountry(9); // Assuming 9 exists
 
             // Test case to delete a country
-            //TestDeleteCountry(10); // Assuming 10 exists
+            TestDeleteCountry(10); // Assuming 10 exists
 
             // List all countries
-            //ListCountries();
+            ListCountries();
 
             // Test case to check if a country exists by ID
-            //TestIsCountryExists(11);
+            TestIsCountryExists(11);
 
-            // Test case to check if a country exists by name
-            //TestFindCountry("Egypt");
-            //TestFindCountry(9);
+            // Test case to check if a country exists
+            TestFindCountry("Egypt");
+            TestFindCountry(9);
 
-            // Test case to check if a country exists by name
+            // Test case to check if a country exists
             TestIsCountryExists("Egypt");
             TestIsCountryExists(9);
 
