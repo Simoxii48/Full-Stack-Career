@@ -235,7 +235,13 @@ namespace ContactsConsoleApp_PresentationLayer
         }
 
         // Test case to check if a country exists by name
-
+        static void TestIsCountryExists(string CountryName)
+        {
+            if (clsCountries.IsCountryExists(CountryName))
+                Console.WriteLine("Country with name " + CountryName + " exists.");
+            else
+                Console.WriteLine("Country with name " + CountryName + " does not exist.");
+        }
 
         static void Main(string[] args)
         {
@@ -279,8 +285,12 @@ namespace ContactsConsoleApp_PresentationLayer
             //TestIsCountryExists(11);
 
             // Test case to check if a country exists by name
-            TestFindCountry("Egypt");
-            TestFindCountry(9);
+            //TestFindCountry("Egypt");
+            //TestFindCountry(9);
+
+            // Test case to check if a country exists by name
+            TestIsCountryExists("Egypt");
+            TestIsCountryExists(9);
 
 
             Console.ReadKey();
