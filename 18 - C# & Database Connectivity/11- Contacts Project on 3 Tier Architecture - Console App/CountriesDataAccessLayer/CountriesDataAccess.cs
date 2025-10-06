@@ -7,7 +7,7 @@ namespace CountriesDataAccessLayer
     public class clsCountriesDataAccess
     {
         // Method to find a country by its ID
-        public static bool FindCountryByID(int CountryId, ref string countryName)
+        public static bool FindCountry(int CountryId, ref string countryName)
         {
             bool isCountryFound = false;
             SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
@@ -41,6 +41,42 @@ namespace CountriesDataAccessLayer
                 connection.Close();
             }
 
+            return isCountryFound;
+        }
+
+        // Method to find a country by its Name
+        public static bool FindCountry(string countryName, ref int CountryID)
+        {
+            bool isCountryFound = false;
+            SqlConnection connection = new SqlConnection(clsCountriesDataAccessSettings.connectionString);
+            string query = "SELECT * FROM Countries WHERE CountryName = @CountryName";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@CountryName", countryName);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.Read())
+                {
+                    // Assuming CountryID is the first column in the Countries table
+                    CountryID = Convert.ToInt32(reader["CountryID"]);
+                    isCountryFound = true;
+                }
+                else
+                {
+                    isCountryFound = false;
+                }
+                reader.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error finding country by Name: " + ex.Message);
+            }
+            finally
+            {
+                connection.Close();
+            }
+            
             return isCountryFound;
         }
 
