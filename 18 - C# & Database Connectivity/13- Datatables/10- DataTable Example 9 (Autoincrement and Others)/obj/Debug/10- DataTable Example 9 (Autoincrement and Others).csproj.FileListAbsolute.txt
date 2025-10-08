@@ -1,0 +1,7 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\bin\Debug\10- DataTable Example 9 (Autoincrement and Others).exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\bin\Debug\10- DataTable Example 9 (Autoincrement and Others).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\bin\Debug\10- DataTable Example 9 (Autoincrement and Others).pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\obj\Debug\10- DataTable Example 9 (Autoincrement and Others).csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\obj\Debug\10- DataTable Example 9 (Autoincrement and Others).csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\obj\Debug\10- DataTable Example 9 (Autoincrement and Others).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\10- DataTable Example 9 (Autoincrement and Others)\obj\Debug\10- DataTable Example 9 (Autoincrement and Others).pdb
