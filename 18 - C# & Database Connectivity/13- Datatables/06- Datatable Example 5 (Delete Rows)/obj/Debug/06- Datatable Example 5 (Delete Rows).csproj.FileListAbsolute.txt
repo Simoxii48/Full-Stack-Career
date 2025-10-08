@@ -1,0 +1,8 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\bin\Debug\06- Datatable Example 5 (Delete Rows).exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\bin\Debug\06- Datatable Example 5 (Delete Rows).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\bin\Debug\06- Datatable Example 5 (Delete Rows).pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\obj\Debug\06- Datatable Example 5 (Delete Rows).csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\obj\Debug\06- Datatable Example 5 (Delete Rows).csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\obj\Debug\06- Datatable Example 5 (Delete Rows).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\obj\Debug\06- Datatable Example 5 (Delete Rows).pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\06- Datatable Example 5 (Delete Rows)\obj\Debug\06- Datatable Example 5 (Delete Rows).exe.config
