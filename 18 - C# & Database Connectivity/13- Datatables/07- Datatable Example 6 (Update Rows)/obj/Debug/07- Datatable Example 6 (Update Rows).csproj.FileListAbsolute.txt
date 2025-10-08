@@ -1,0 +1,7 @@
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\bin\Debug\07- Datatable Example 6 (Update Rows).exe.config
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\bin\Debug\07- Datatable Example 6 (Update Rows).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\bin\Debug\07- Datatable Example 6 (Update Rows).pdb
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\obj\Debug\07- Datatable Example 6 (Update Rows).csproj.AssemblyReference.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\obj\Debug\07- Datatable Example 6 (Update Rows).csproj.CoreCompileInputs.cache
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\obj\Debug\07- Datatable Example 6 (Update Rows).exe
+C:\Users\mouha\Desktop\CPP\18 - C# & Database Connectivity\13- Datatables\07- Datatable Example 6 (Update Rows)\obj\Debug\07- Datatable Example 6 (Update Rows).pdb
