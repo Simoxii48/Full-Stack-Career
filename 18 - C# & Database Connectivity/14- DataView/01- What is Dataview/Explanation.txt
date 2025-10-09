@@ -1,0 +1,30 @@
+In C#, both DataView and DataTable are classes provided by the .NET Framework for working with tabular data. 
+While they serve similar purposes, there are some differences between them, and the choice between DataView and DataTable depends on your specific requirements. 
+Here are a few reasons why you might choose to use DataView over DataTable:
+
+    	Data Manipulation: DataView provides more flexible and efficient data manipulation capabilities compared to DataTable. 
+	It allows you to apply filters, sort and search data, and perform custom data projections using LINQ queries. 
+	These operations are often more convenient and performant with DataView.
+    
+	Lightweight: DataView is a lightweight wrapper around a DataTable that provides a read-only, customized view of the data. 
+	It does not duplicate the underlying data but instead provides a flexible way to access and manipulate it. 
+	If you only need to query or display data without making any modifications, using DataView can be more memory-efficient.
+    	
+	Sorting and Filtering: DataView makes it easy to sort and filter data using its built-in functionalities. 
+	You can specify multiple sort criteria, apply complex filters using expressions, and even create custom views based on specific criteria. 
+	DataTable also supports sorting and filtering, but DataView provides a more convenient and expressive syntax for these operations.
+    
+	Data Binding: If you are working with data binding scenarios, DataView provides more control and flexibility. 
+	It allows you to bind the view to UI controls and automatically update the display when the underlying data changes. 
+	DataTable can also be bound to controls, but DataView offers more advanced features in this regard.
+    
+	Performance: In some cases, DataView can offer better performance compared to DataTable. 
+	Since DataView provides a customized view of the data, it can optimize operations like filtering and sorting, resulting in faster execution times. 
+	If you frequently perform these operations on large datasets, DataView might provide better performance.
+
+However, it's worth noting that DataTable has its advantages as well. 
+It is a more robust and comprehensive data structure that can hold multiple tables, enforce constraints, and support more complex data operations. 
+If you require these advanced features or need to perform extensive modifications to the data structure itself, DataTable might be a better choice.
+
+In summary, DataView is generally preferred when you need a lightweight, customizable view of data for querying, 
+sorting, and filtering, while DataTable is suitable for scenarios that involve complex data operations, constraints, and multiple tables.
