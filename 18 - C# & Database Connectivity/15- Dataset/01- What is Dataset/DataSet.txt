@@ -1,0 +1,17 @@
+What is Dataset?
+
+In C#, a dataset is an in-memory representation of a collection of data that can be used for storing and manipulating structured data. 
+It is a part of the ADO.NET technology stack, which is used for data access in .NET applications.
+
+A dataset can be thought of as a container that holds one or more DataTable objects, which in turn represent tables of data. 
+Each DataTable within a dataset contains DataColumn objects that define the structure and data types of the columns, as well as DataRow objects that represent the actual data rows.
+
+Datasets provide a disconnected, in-memory representation of data, meaning that they can be filled with data from a data source (such as a database) and then disconnected from the data source. 
+This allows for offline manipulation and analysis of the data without constantly being connected to the original data source.
+
+Compared to other data access methods in C#, such as using a DataReader , datasets can sometimes be slower due to their inherent overhead. 
+Datasets store data in memory in a disconnected manner, which means that data needs to be loaded from a data source into memory and then synchronized back to the data source when changes are made. 
+This synchronization process can introduce additional overhead and impact performance.
+
+In scenarios where you are working with a large amount of data, datasets may not be the most efficient option. In such cases, using alternatives like DataReader, 
+which retrieves data in a forward-only and read-only manner, can be more efficient as they minimize memory consumption and provide faster access to data.
