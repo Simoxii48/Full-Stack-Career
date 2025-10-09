@@ -1,0 +1,4 @@
+What is DataAdapter?
+
+In C#, a DataAdapter is a class that acts as a bridge between a DataSet and a data source, such as a database. 
+It provides methods for populating a DataSet with data from the data source and updating the data source with changes made to the DataSet.
