@@ -1,0 +1,12 @@
+C:\Users\USER\source\repos\MyFirstUserControlProject\bin\Debug\MyFirstUserControlProject.exe.config
+C:\Users\USER\source\repos\MyFirstUserControlProject\bin\Debug\MyFirstUserControlProject.exe
+C:\Users\USER\source\repos\MyFirstUserControlProject\bin\Debug\MyFirstUserControlProject.pdb
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.csproj.AssemblyReference.cache
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.csproj.SuggestedBindingRedirects.cache
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.Form1.resources
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.Properties.Resources.resources
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.csproj.GenerateResource.cache
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.csproj.CoreCompileInputs.cache
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.exe
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.pdb
+C:\Users\USER\source\repos\MyFirstUserControlProject\obj\Debug\MyFirstUserControlProject.ctrlSompleCalc.resources
